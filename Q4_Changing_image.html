@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Changer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #eef2ff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            text-align: center;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: #2563eb;
+            margin-bottom: 25px;
+        }
+
+        #myImage {
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            #myImage {
+                height: 200px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Change the Image</h1>
+
+        <img
+            id="myImage"
+            src="https://picsum.photos/id/1015/600/400"
+            alt="Displayed image"
+        >
+
+        <br>
+
+        <button onclick="changeImage()">
+            Change Image
+        </button>
+    </div>
+
+    <script>
+        const images = [
+            "https://picsum.photos/id/1015/600/400",
+            "https://picsum.photos/id/1016/600/400",
+            "https://picsum.photos/id/1025/600/400",
+            "https://picsum.photos/id/1035/600/400"
+        ];
+
+        let currentImage = 0;
+
+        function changeImage() {
+            currentImage++;
+
+            if (currentImage >= images.length) {
+                currentImage = 0;
+            }
+
+            document.getElementById("myImage").src =
+                images[currentImage];
+        }
+    </script>
+
+</body>
+</html>
